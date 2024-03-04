@@ -7,8 +7,10 @@ from api import app
 def index(): 
     return render_template("basic.html")
 
+
 @app.route("/processing", methods=['POST'])
 def analisar_portarias():
-    
+    from api.models.teste import imprimir
+    c = imprimir()
         
-    return render_template("teste.html")
+    return render_template("teste.html", c=c)
