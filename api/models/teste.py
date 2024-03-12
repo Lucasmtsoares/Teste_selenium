@@ -10,11 +10,9 @@ import time
 
 from webdriver_manager.chrome import ChromeDriverManager
 
-options = Options()
-#options.addExtensions(("/path/to/extension.crx"))
-
-driver = webdriver.Chrome(executable_path=r'C:\\Users\\55829\\Desktop\\cromedriver\\chromedriver.exe', options=options)
-
+options = webdriver.ChromeOptions()
+options.add_argument('--headless')  # Se você quiser visualizar o navegador, remova esta linha
+driver = webdriver.Chrome(options=options)
 
 def imprimir():
     

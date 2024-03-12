@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from api import app
+from __init__ import app
 
 
 
@@ -10,7 +10,7 @@ def index():
 
 @app.route("/processing", methods=['POST'])
 def analisar_portarias():
-    from api.models.teste import imprimir
+    from models.teste import imprimir
     c = imprimir()
         
     return render_template("teste.html", c=c)
