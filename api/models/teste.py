@@ -21,7 +21,7 @@ options.platform_name = 'Windows 11'
 sauce_options = {}
 sauce_options['username'] = 'oauth-lucasoares3243-19726'
 sauce_options['accessKey'] = '9a6220d2-0c79-4375-98ee-b2a598127379'
-sauce_options['build'] = 'selenium-build-17DEX'
+sauce_options['build'] = 'selenium-build-0PHDA'
 sauce_options['name'] = 'Teste-dou'
 options.set_capability('sauce:options', sauce_options)
 url = "https://ondemand.us-west-1.saucelabs.com:443/wd/hub"
