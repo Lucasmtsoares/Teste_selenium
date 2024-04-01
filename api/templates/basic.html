@@ -3,25 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Doif</title>
-    <style>
-        body{
-            background-color: rgba(162, 132, 178, 0.8);
-        }
-    </style>
+    <link rel="stylesheet" href="{{url_for('static', filename='analitic-style.css')}}">
+    <title>analisar_portarias</title>
 </head>
 <body>
-    <div class="container">
-        <h1 class="title">DOIF - <span>Analisador de portarias das IFs</span></h1>
-        <div class="content">
-            <form action="{{url_for('analisar_portarias')}}" method="post">
-                <input type="text" id="date" placeholder="Digite algo..." >
-                <button type="submit">Enviar</button>
-            </form>
+    <h1>Gráficos</h1>
+    {% if res %}
+        <p>{{res}}</p>
+    {% endif %}
+
+    <div class="content-nomeacao">
+        <div>
+            <canvas id="grafic-nomeacao"></canvas>
         </div>
-        <div class="res"></div>
     </div>
-    
+
+    <div class="content-exoneracao">
+        <div>
+            <canvas id="grafic-exoneracao"></canvas>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const grafic_nomeacao = document.getElementById('grafic-nomeacao');
+  const grafic_exoneracao = document.getElementById('grafic-exoneracao')
+
+  new Chart(grafic_nomeacao, {
+    type: 'line',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 10, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+  new Chart(grafic_exoneracao, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
 </body>
 </html>
